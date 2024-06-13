@@ -1,0 +1,24 @@
+[package]
+name = "embassy-on-esp"
+version = "0.1.0"
+authors = ["Leon <12817042+thedevleon@users.noreply.github.com>"]
+edition = "2021"
+license = "MIT"
+
+[dependencies]
+esp-hal = { version = "0.18.0", features = ["esp32c6", "async", "log"] }
+esp-hal-embassy = { version = "0.1.0", features = ["esp32c6", "time-timg0", "integrated-timers"] }
+esp-backtrace = { version = "0.11.1", features = ["esp32c6", "exception-handler", "panic-handler", "println"] }
+esp-println = { version = "0.9.1", features = ["esp32c6", "log"] }
+log = "0.4.21"
+defmt = {version = "0.3.6", optional = true }
+num-traits = { version = "0.2", default-features = false, features = ["libm"] }
+
+
+embassy-executor = { version = "0.5.0", features = ["nightly"] }
+embassy-sync = "0.5.0"
+embassy-time = { version = "0.3.0"}
+embassy-usb = { version = "0.1.0", default-features = false }
+
+[features]
+defmt = ["dep:defmt"]
